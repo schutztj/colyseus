@@ -15,7 +15,7 @@ import { RoomConstructor } from './Room';
 import { parseQueryString, registerGracefulShutdown } from './Utils';
 
 const PING_INTERVAL = 1 * 1000; // 1 seconds for verifying ping.
-function noop() {/* tslint:disable:no-empty */}
+function noop() {/* tslint:disable:no-empty */ }
 function heartbeat() { this.pingCount = 0; }
 
 export type ServerOptions = IServerOptions & {
@@ -100,7 +100,7 @@ export class Server {
     }, PING_INTERVAL);
   }
 
-  public listen(port: number, hostname?: string, backlog?: number, listeningListener?: Function) {
+  public listen(port: any, hostname?: string, backlog?: number, listeningListener?: Function) {
     this.httpServer.listen(port, hostname, backlog, listeningListener);
   }
 
@@ -180,7 +180,7 @@ export class Server {
         });
 
     } else {
-      client.on('message',  this.onMessageMatchMaking.bind(this, client));
+      client.on('message', this.onMessageMatchMaking.bind(this, client));
     }
   }
 
@@ -224,7 +224,7 @@ export class Server {
 
   }
 
-  protected shutdown()  {
+  protected shutdown() {
     clearInterval(this.pingInterval);
     return this.onShutdownCallback();
   }
