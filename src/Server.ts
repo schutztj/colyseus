@@ -15,7 +15,7 @@ import { decode, Protocol, send } from './Protocol';
 import { RoomConstructor } from './Room';
 import { parseQueryString, registerGracefulShutdown, retry } from './Utils';
 
-function noop() {/* tslint:disable:no-empty */}
+function noop() {/* tslint:disable:no-empty */ }
 function heartbeat() { this.pingCount = 0; }
 
 export type ServerOptions = IServerOptions & {
@@ -102,7 +102,7 @@ export class Server {
     }, this.pingTimeout);
   }
 
-  public listen(port: number, hostname?: string, backlog?: number, listeningListener?: Function) {
+  public listen(port: any, hostname?: string, backlog?: number, listeningListener?: Function) {
     this.httpServer.listen(port, hostname, backlog, listeningListener);
   }
 
@@ -199,7 +199,7 @@ export class Server {
         });
 
     } else {
-      client.on('message',  this.onMessageMatchMaking.bind(this, client));
+      client.on('message', this.onMessageMatchMaking.bind(this, client));
     }
   }
 
@@ -252,7 +252,7 @@ export class Server {
 
   }
 
-  protected shutdown()  {
+  protected shutdown() {
     clearInterval(this.pingInterval);
     return this.onShutdownCallback();
   }
