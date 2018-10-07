@@ -2,7 +2,7 @@
 import { Timeline } from '@gamestdio/timeline';
 import Clock from '@gamestdio/timer';
 import { EventEmitter } from 'events';
-import { Client } from './index';
+import { Client } from '.';
 import { Presence } from './presence/Presence';
 import { RemoteClient } from './presence/RemoteClient';
 import { Deferred } from './Utils';
@@ -78,7 +78,7 @@ export declare abstract class Room<T = any> extends EventEmitter {
     protected allowReconnection(client: Client, seconds?: number): Promise<Client>;
     protected _reserveSeat(client: Client, seconds?: number, allowReconnection?: boolean): void;
     protected resetAutoDisposeTimeout(timeoutInSeconds: number): void;
-    protected _disposeIfEmpty(): void;
+    protected _disposeIfEmpty(): boolean;
     protected _dispose(): Promise<any>;
     private _emitOnClient;
     private _onMessage;

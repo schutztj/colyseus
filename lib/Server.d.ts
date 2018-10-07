@@ -9,7 +9,7 @@ import { Presence } from './presence/Presence';
 import { Client } from './index';
 import { RoomConstructor } from './Room';
 export declare type ServerOptions = IServerOptions & {
-    seatReserveationTime?: number;
+    pingTimeout?: number;
     verifyClient?: WebSocket.VerifyClientCallbackAsync;
     presence?: any;
     engine?: any;
@@ -21,6 +21,7 @@ export declare class Server {
     protected httpServer: net.Server | http.Server;
     protected presence: Presence;
     protected pingInterval: NodeJS.Timer;
+    protected pingTimeout: number;
     protected onShutdownCallback: () => void | Promise<any>;
     constructor(options?: ServerOptions);
     attach(options: ServerOptions): void;

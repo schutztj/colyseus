@@ -7,6 +7,8 @@ export interface RoomWithScore {
     roomId: string;
     score: number;
 }
+export declare const REMOTE_ROOM_SHORT_TIMEOUT = 200;
+export declare const REMOTE_ROOM_LARGE_TIMEOUT: number;
 export declare class MatchMaker {
     handlers: {
         [id: string]: RegisteredHandler;

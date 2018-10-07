@@ -1,4 +1,5 @@
 export declare function registerGracefulShutdown(callback: any): void;
+export declare function retry(cb: Function, maxRetries?: number, retries?: number, errorWhiteList?: any[]): Promise<{}>;
 export declare class Deferred<T = any> {
     promise: Promise<T>;
     resolve: Function;
